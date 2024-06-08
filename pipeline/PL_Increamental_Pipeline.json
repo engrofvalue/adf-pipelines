@@ -154,7 +154,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "select '@{activity('ACT_LKP_Get_High_WaterMark_TimeStamp').output.firstRow.LastRecordDate}'",
+							"value": "select @{activity('ACT_LKP_Get_Last_Modified_TimeStamp').output.firstRow.LastRecordDate}",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
