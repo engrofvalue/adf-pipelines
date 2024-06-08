@@ -27,13 +27,13 @@
 						}
 					},
 					"dataset": {
-						"referenceName": "DS_High_WaterMark",
+						"referenceName": "DS_High_WaterMark_TimeStamp",
 						"type": "DatasetReference"
 					}
 				}
 			},
 			{
-				"name": "ACT_LKP_Get_Last_Modified_Date",
+				"name": "ACT_LKP_Get_Last_Modified_TimeStamp",
 				"type": "Lookup",
 				"dependsOn": [
 					{
@@ -70,7 +70,7 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "ACT_LKP_Get_Last_Modified_Date",
+						"activity": "ACT_LKP_Get_Last_Modified_TimeStamp",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -87,6 +87,10 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
+						"sqlReaderQuery": {
+							"value": "select * from saleslt.customer where ModifiedDate >",
+							"type": "Expression"
+						},
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
