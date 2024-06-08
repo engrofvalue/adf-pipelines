@@ -61,7 +61,8 @@
 					"dataset": {
 						"referenceName": "Product_SQL_DS",
 						"type": "DatasetReference"
-					}
+					},
+					"firstRowOnly": true
 				}
 			}
 		],
