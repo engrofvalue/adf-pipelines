@@ -33,7 +33,7 @@
 				}
 			},
 			{
-				"name": "ACT_G",
+				"name": "ACT_LKP_Get_Last_Modified_Date",
 				"type": "Lookup",
 				"dependsOn": [
 					{
