@@ -19,7 +19,7 @@ Welcome to the Basic ADF Activity Repository! This repository is designed to pro
 **1. Clone the Repository:**
 
 Copy code
-git clone https://github.com/yourusername/adf-pipelines
+git clone https://github.com/abhilas0/adf-pipelines
 
 **2. Explore the Examples:** Navigate through the folders to find the activity or operation you need.
 
