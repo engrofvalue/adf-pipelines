@@ -1,5 +1,5 @@
 {
-	"name": "SQL_DB_Generic_DS",
+	"name": "DS_SQL_DB_Generic",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabase1",

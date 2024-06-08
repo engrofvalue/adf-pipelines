@@ -43,7 +43,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Product_SQL_DS",
+						"referenceName": "DS_Product_SQL",
 						"type": "DatasetReference"
 					}
 				],

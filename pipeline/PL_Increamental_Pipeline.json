@@ -59,7 +59,7 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "Product_SQL_DS",
+						"referenceName": "DS_Product_SQL",
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": true
@@ -117,7 +117,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SQL_DB_Customer_DS",
+						"referenceName": "DS_SQL_DB_Customer",
 						"type": "DatasetReference"
 					}
 				],
@@ -183,7 +183,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Product_SQL_DS",
+						"referenceName": "DS_Product_SQL",
 						"type": "DatasetReference"
 					}
 				],

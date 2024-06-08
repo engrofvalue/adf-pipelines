@@ -1,5 +1,5 @@
 {
-	"name": "SQL_DB_Customer_DS",
+	"name": "DS_SQL_DB_Customer",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabase1",

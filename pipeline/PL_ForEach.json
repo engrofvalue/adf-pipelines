@@ -55,7 +55,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "SQL_DB_Generic_DS",
+									"referenceName": "DS_SQL_DB_Generic",
 									"type": "DatasetReference",
 									"parameters": {
 										"schemaName": "saleslt",

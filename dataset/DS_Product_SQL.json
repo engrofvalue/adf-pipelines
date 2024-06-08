@@ -1,5 +1,5 @@
 {
-	"name": "Product_SQL_DS",
+	"name": "DS_Product_SQL",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabase1",
