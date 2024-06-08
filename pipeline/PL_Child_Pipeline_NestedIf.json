@@ -1,9 +1,9 @@
 {
-	"name": "PL_NestedIf",
+	"name": "PL_Child_Pipeline_NestedIf",
 	"properties": {
 		"activities": [
 			{
-				"name": "Get Product Count",
+				"name": "Get Customer Count",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -17,7 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select count (*) as RecordCount from saleslt.product",
+						"sqlReaderQuery": "select count (*) as RecordCount from saleslt.customer",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -33,7 +33,7 @@
 				"type": "IfCondition",
 				"dependsOn": [
 					{
-						"activity": "Get Product Count",
+						"activity": "Get Customer Count",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -42,12 +42,12 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@greater(activity('Get Product Count').output.firstRow.RecordCount,200)",
+						"value": "@greater(activity('Get Customer Count').output.firstRow.RecordCount,500)",
 						"type": "Expression"
 					},
 					"ifTrueActivities": [
 						{
-							"name": "Product Copy",
+							"name": "Copy data1",
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
@@ -87,7 +87,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "Product_SQL_DS",
+									"referenceName": "SQL_DB_Customer_DS",
 									"type": "DatasetReference"
 								}
 							],
@@ -96,33 +96,10 @@
 									"referenceName": "DS_ADLS_CSV_generic",
 									"type": "DatasetReference",
 									"parameters": {
-										"folderName": "Product"
+										"folderName": "Customer"
 									}
 								}
 							]
-						},
-						{
-							"name": "Excecute Child Pipline",
-							"type": "ExecutePipeline",
-							"dependsOn": [
-								{
-									"activity": "Product Copy",
-									"dependencyConditions": [
-										"Succeeded"
-									]
-								}
-							],
-							"policy": {
-								"secureInput": false
-							},
-							"userProperties": [],
-							"typeProperties": {
-								"pipeline": {
-									"referenceName": "PL_Child_Pipeline_NestedIf",
-									"type": "PipelineReference"
-								},
-								"waitOnCompletion": true
-							}
 						}
 					]
 				}

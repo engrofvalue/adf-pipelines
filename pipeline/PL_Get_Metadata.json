@@ -108,7 +108,7 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "ADLS_CSV_generic_dataset",
+									"referenceName": "DS_ADLS_CSV_generic",
 									"type": "DatasetReference",
 									"parameters": {
 										"folderName": "Product"

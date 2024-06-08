@@ -39,7 +39,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "ADLS_json_DS",
+						"referenceName": "DS_ADLS_json",
 						"type": "DatasetReference"
 					}
 				]
