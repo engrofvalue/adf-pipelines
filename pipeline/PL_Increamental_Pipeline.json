@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "ACT_LKP_Get_High_WaterMark",
+				"name": "ACT_LKP_Get_High_WaterMark_Time",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -37,7 +37,7 @@
 				"type": "Lookup",
 				"dependsOn": [
 					{
-						"activity": "ACT_LKP_Get_High_WaterMark",
+						"activity": "ACT_LKP_Get_High_WaterMark_Time",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -87,10 +87,6 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": {
-							"value": "select * from saleslt.customer where ModifiedDate >",
-							"type": "Expression"
-						},
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
