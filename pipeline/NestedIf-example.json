@@ -118,7 +118,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"pipeline": {
-									"referenceName": "Child-Pipeline-NestedIf-example",
+									"referenceName": "PL_Child_Pipeline_NestedIf_example",
 									"type": "PipelineReference"
 								},
 								"waitOnCompletion": true
