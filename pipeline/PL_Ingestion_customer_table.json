@@ -49,7 +49,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "CSV_DS",
+						"referenceName": "DS_CSV",
 						"type": "DatasetReference"
 					}
 				]

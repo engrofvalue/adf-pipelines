@@ -1,5 +1,5 @@
 {
-	"name": "product_TXT_DS",
+	"name": "DS_Product_txt",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ADLS_LS",

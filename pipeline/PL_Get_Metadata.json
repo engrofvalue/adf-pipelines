@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "product_TXT_DS",
+						"referenceName": "DS_Product_txt",
 						"type": "DatasetReference"
 					},
 					"fieldList": [
@@ -102,7 +102,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "product_TXT_DS",
+									"referenceName": "DS_Product_txt",
 									"type": "DatasetReference"
 								}
 							],

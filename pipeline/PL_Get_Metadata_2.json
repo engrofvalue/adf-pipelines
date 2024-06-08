@@ -111,7 +111,7 @@
 										},
 										"inputs": [
 											{
-												"referenceName": "File_name_DS",
+												"referenceName": "DS_File_Name",
 												"type": "DatasetReference",
 												"parameters": {
 													"fileName": {
