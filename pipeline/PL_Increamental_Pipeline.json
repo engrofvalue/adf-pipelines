@@ -88,7 +88,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "select * from saleslt.customer where ModifiedDate > @{activity('ACT_LKP_Get_High_WaterMark_TimeStamp').output.firstRow.Prop_0} and ModifiedDate <= @{activity('ACT_LKP_Get_Last_Modified_TimeStamp').output.firstRow.LastRecordDAte}",
+							"value": "select * from saleslt.customer where ModifiedDate > @{activity('ACT_LKP_Get_High_WaterMark_TimeStamp').output.firstRow.Prop_0} and ModifiedDate <= @{activity('ACT_LKP_Get_Last_Modified_TimeStamp').output.firstRow.LastRecordDate}",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
