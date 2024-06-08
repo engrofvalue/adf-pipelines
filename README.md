@@ -23,7 +23,8 @@ git clone https://github.com/yourusername/adf-pipelines
 
 **2. Explore the Examples:** Navigate through the folders to find the activity or operation you need.
 
-🤝 Contributing
+
+**🤝 Contributing**
 We welcome contributions! If you have a new activity or improvement, feel free to open a pull request.
 
 Happy data integrating! 😊
