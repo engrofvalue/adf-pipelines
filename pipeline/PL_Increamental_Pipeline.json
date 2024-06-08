@@ -132,7 +132,7 @@
 				]
 			},
 			{
-				"name": "Copy data1",
+				"name": "ACT_Update_High_WaterMark",
 				"type": "Copy",
 				"dependsOn": [
 					{
@@ -151,8 +151,19 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
 					"enableStaging": false
-				}
+				},
+				"inputs": [
+					{
+						"referenceName": "Product_SQL_DS",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"annotations": []
