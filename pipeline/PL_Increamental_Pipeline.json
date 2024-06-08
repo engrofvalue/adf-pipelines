@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "ACT_LKP_",
+				"name": "ACT_LKP_GetHighWaterMark",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
