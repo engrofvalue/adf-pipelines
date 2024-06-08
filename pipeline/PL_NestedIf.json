@@ -1,5 +1,5 @@
 {
-	"name": "NestedIf-example",
+	"name": "PL_NestedIf",
 	"properties": {
 		"activities": [
 			{
@@ -118,7 +118,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"pipeline": {
-									"referenceName": "PL_Child_Pipeline_NestedIf_example",
+									"referenceName": "PL_Child_Pipeline_NestedIf",
 									"type": "PipelineReference"
 								},
 								"waitOnCompletion": true

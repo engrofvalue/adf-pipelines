@@ -1,5 +1,5 @@
 {
-	"name": "Ingest_Product_Sqldb_to_ADLS",
+	"name": "PL_Ingest_Product_Sqldb_to_ADLS",
 	"properties": {
 		"activities": [
 			{
