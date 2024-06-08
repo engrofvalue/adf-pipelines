@@ -65,7 +65,13 @@
 									"partitionOption": "None"
 								},
 								"enableStaging": false
-							}
+							},
+							"inputs": [
+								{
+									"referenceName": "DS_SQL_DB_Customer",
+									"type": "DatasetReference"
+								}
+							]
 						}
 					]
 				}
