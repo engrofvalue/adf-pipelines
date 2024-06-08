@@ -1,5 +1,5 @@
 {
-	"name": "DS_High_WaterMark_TimeStamp",
+	"name": "DS_High_WaterMark",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ADLS_LS",

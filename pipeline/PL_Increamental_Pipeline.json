@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "ACT_LKP_Get_High_WaterMark_Time",
+				"name": "ACT_LKP_Get_High_WaterMark_TimeStamp",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -27,7 +27,7 @@
 						}
 					},
 					"dataset": {
-						"referenceName": "DS_High_WaterMark_TimeStamp",
+						"referenceName": "DS_High_WaterMark",
 						"type": "DatasetReference"
 					}
 				}
@@ -37,7 +37,7 @@
 				"type": "Lookup",
 				"dependsOn": [
 					{
-						"activity": "ACT_LKP_Get_High_WaterMark_Time",
+						"activity": "ACT_LKP_Get_High_WaterMark_TimeStamp",
 						"dependencyConditions": [
 							"Succeeded"
 						]
