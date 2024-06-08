@@ -27,7 +27,7 @@
 						}
 					},
 					"dataset": {
-						"referenceName": "DS_highWatermark",
+						"referenceName": "DS_HighWatermark",
 						"type": "DatasetReference"
 					}
 				}
