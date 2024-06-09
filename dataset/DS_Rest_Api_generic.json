@@ -1,5 +1,5 @@
 {
-	"name": "DS_Rest_Aii_generic",
+	"name": "DS_Rest_Api_generic",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_Rest_Generic",
