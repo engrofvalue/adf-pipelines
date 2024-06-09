@@ -1,5 +1,5 @@
 {
-	"name": "Rest_Api",
+	"name": "DS_Rest_Api",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_Rest_Api",

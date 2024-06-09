@@ -37,13 +37,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Rest_Api",
+						"referenceName": "DS_Rest_Api",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Rest_Jason",
+						"referenceName": "DS_Rest_Jason",
 						"type": "DatasetReference"
 					}
 				]
