@@ -54,7 +54,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select max (ModifiedDate) as LastRecordDate from salesLT.customer",
+						"sqlReaderQuery": "select max (ModifiedDate) as LastRecordDate from salesLT.customerr",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -199,7 +199,7 @@
 				"type": "WebActivity",
 				"dependsOn": [
 					{
-						"activity": "ACT_LKP_Get_High_WaterMark_TimeStamp",
+						"activity": "ACT_LKP_Get_Last_Modified_TimeStamp",
 						"dependencyConditions": [
 							"Failed"
 						]
