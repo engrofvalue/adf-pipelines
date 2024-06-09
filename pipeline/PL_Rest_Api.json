@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "ACT_Get",
+				"name": "ACT_Get_Api_Data",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
