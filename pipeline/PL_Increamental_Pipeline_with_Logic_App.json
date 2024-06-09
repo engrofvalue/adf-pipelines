@@ -195,7 +195,7 @@
 				]
 			},
 			{
-				"name": "Web1",
+				"name": "ACT_Send_Failed_Email",
 				"type": "WebActivity",
 				"dependsOn": [
 					{
