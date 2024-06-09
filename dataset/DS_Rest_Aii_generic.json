@@ -1,0 +1,12 @@
+{
+	"name": "DS_Rest_Aii_generic",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Rest_Generic",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"schema": []
+	}
+}
