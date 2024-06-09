@@ -1,5 +1,5 @@
 {
-	"name": "DS_Rest_Jason",
+	"name": "DS_Rest_Json",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ADLS_LS",

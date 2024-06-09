@@ -43,7 +43,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_Rest_Jason",
+						"referenceName": "DS_Rest_Json",
 						"type": "DatasetReference"
 					}
 				]
