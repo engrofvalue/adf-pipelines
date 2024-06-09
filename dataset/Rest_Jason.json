@@ -1,5 +1,5 @@
 {
-	"name": "Res_Jason",
+	"name": "Rest_Jason",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ADLS_LS",
