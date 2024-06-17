@@ -16,9 +16,15 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "AzureSqlSource",
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
 					},
 					"sink": {
 						"type": "JsonSink",
@@ -33,7 +39,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DS_SQL_DB_Customer",
+						"referenceName": "DS_JSON_customer",
 						"type": "DatasetReference"
 					}
 				],
