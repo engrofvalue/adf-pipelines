@@ -40,7 +40,10 @@
 				"outputs": [
 					{
 						"referenceName": "DS_JSON_customer",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"folderName": "JSON"
+						}
 					}
 				]
 			}

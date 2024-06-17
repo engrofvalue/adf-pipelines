@@ -5,11 +5,20 @@
 			"referenceName": "ADLS_LS",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"folderName": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@dataset().folderName",
+					"type": "Expression"
+				},
 				"fileSystem": "landing"
 			}
 		},
