@@ -50,7 +50,10 @@
 				"outputs": [
 					{
 						"referenceName": "DS_customer_CSV_tab_separated",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"folderName": "CSV_Pipe"
+						}
 					}
 				]
 			}
