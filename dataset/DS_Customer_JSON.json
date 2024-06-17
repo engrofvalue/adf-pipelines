@@ -1,0 +1,85 @@
+{
+	"name": "DS_Customer_JSON",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ADLS_LS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "SalesLT.Customer.json",
+				"folderPath": "JSON",
+				"fileSystem": "landing"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "{\"CustomerID\":1",
+				"type": "String"
+			},
+			{
+				"name": "\"NameStyle\":false",
+				"type": "String"
+			},
+			{
+				"name": "\"Title\":\"Mr.\"",
+				"type": "String"
+			},
+			{
+				"name": "\"FirstName\":\"Orlando\"",
+				"type": "String"
+			},
+			{
+				"name": "\"MiddleName\":\"N.\"",
+				"type": "String"
+			},
+			{
+				"name": "\"LastName\":\"Gee\"",
+				"type": "String"
+			},
+			{
+				"name": "\"Suffix\":null",
+				"type": "String"
+			},
+			{
+				"name": "\"CompanyName\":\"A Bike Store\"",
+				"type": "String"
+			},
+			{
+				"name": "\"SalesPerson\":\"adventure-works\\\\pamela0\"",
+				"type": "String"
+			},
+			{
+				"name": "\"EmailAddress\":\"orlando0@adventure-works.com\"",
+				"type": "String"
+			},
+			{
+				"name": "\"Phone\":\"245-555-0173\"",
+				"type": "String"
+			},
+			{
+				"name": "\"PasswordHash\":\"L/Rlwxzp4w7RWmEgXX+/A7cXaePEPcp+KwQhl2fJL7w=\"",
+				"type": "String"
+			},
+			{
+				"name": "\"PasswordSalt\":\"1KjXYs4=\"",
+				"type": "String"
+			},
+			{
+				"name": "\"rowguid\":\"3f5ae95e-b87d-4aed-95b4-c3797afcb74f\"",
+				"type": "String"
+			},
+			{
+				"name": "\"ModifiedDate\":\"2005-08-01T00:00:00\"}",
+				"type": "String"
+			}
+		]
+	}
+}

@@ -16,14 +16,14 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "JsonSource",
+						"type": "DelimitedTextSource",
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
-							"type": "JsonReadSettings"
+							"type": "DelimitedTextReadSettings"
 						}
 					},
 					"sink": {
@@ -39,7 +39,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DS_JSON_customer",
+						"referenceName": "DS_Customer_JSON",
 						"type": "DatasetReference"
 					}
 				],
