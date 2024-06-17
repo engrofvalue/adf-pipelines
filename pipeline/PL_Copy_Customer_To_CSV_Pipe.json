@@ -1,0 +1,53 @@
+{
+	"name": "PL_Copy_Customer_To_CSV_Pipe",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_CustomerTable_To_JSON",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "JsonSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "JsonWriteSettings"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_SQL_DB_Customer",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS_JSON_customer",
+						"type": "DatasetReference",
+						"parameters": {
+							"folderName": "JSON"
+						}
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
