@@ -92,6 +92,25 @@
 						}
 					]
 				}
+			},
+			{
+				"name": "ACT_Exceute_Product",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "ACT_Check_Count",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"waitOnCompletion": true
+				}
 			}
 		],
 		"annotations": []
