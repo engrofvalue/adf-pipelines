@@ -26,19 +26,6 @@
 						"type": "DatasetReference"
 					}
 				}
-			},
-			{
-				"name": "ACT_Check_Copy_condition",
-				"type": "IfCondition",
-				"dependsOn": [
-					{
-						"activity": "ACT_Get_Product_Count",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": []
 			}
 		],
 		"annotations": []
