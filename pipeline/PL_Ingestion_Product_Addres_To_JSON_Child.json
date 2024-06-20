@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "ACT_Get_Product_Count",
+				"name": "ACT_Get_Address_Count",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -17,7 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "Select count (*) as RecordCount\nFrom SalesLT.Product",
+						"sqlReaderQuery": "Select count (*) as RecordCount\nFrom SalesLT.Address",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -32,7 +32,7 @@
 				"type": "IfCondition",
 				"dependsOn": [
 					{
-						"activity": "ACT_Get_Product_Count",
+						"activity": "ACT_Get_Address_Count",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -41,7 +41,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@greater(activity('ACT_Get_Product_Count').output.firstRow.recordCount,10)",
+						"value": "@greater(activity('ACT_Get_Address_Count').output.firstRow.recordCount,10)",
 						"type": "Expression"
 					},
 					"ifTrueActivities": [
