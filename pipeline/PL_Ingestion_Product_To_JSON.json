@@ -1,5 +1,5 @@
 {
-	"name": "PL_Ingestion_Customer_JOIN_ADLS_1",
+	"name": "PL_Ingestion_Product_To_JSON",
 	"properties": {
 		"activities": [
 			{
