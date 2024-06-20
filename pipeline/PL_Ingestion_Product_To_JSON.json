@@ -1,10 +1,10 @@
 {
-	"name": "PL_Ingestion_Product_To_JSON",
+	"name": "PL_Ingestion_Customer_JOIN_ADLS_1",
 	"properties": {
 		"activities": [
 			{
-				"name": "ACT_Ingestion_Customer_JOIN_ADLS",
-				"type": "Copy",
+				"name": "ACT_Get_Product_Count",
+				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -17,46 +17,15 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "Select C.Firstname, C.MiddleName,C.LastName, CA.AddressLine1,CA.AddressLine2\nFrom [SalesLT].[Customer] as C \nLeft Join [SalesLT].[CustomerAddress] as A \nOn C.[CustomerID] = A.[CustomerID]\nLeft Join [SalesLT].[Address] as CA\nOn A.[AddressID] = CA.[AddressID]\nOrder BY 5 DESC",
+						"sqlReaderQuery": "Select count (*) as Record_Count\nFrom SalesLT.Product",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
-					"sink": {
-						"type": "DelimitedTextSink",
-						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
-						},
-						"formatSettings": {
-							"type": "DelimitedTextWriteSettings",
-							"quoteAllText": true,
-							"fileExtension": ".txt"
-						}
-					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
-				},
-				"inputs": [
-					{
-						"referenceName": "DS_Product_SQL",
+					"dataset": {
+						"referenceName": "DS_Product_table",
 						"type": "DatasetReference"
 					}
-				],
-				"outputs": [
-					{
-						"referenceName": "DS_ADLS_CSV_generic",
-						"type": "DatasetReference",
-						"parameters": {
-							"folderName": "Customer Name_Address"
-						}
-					}
-				]
+				}
 			}
 		],
 		"annotations": []
