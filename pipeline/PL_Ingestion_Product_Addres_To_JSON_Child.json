@@ -41,7 +41,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@greater(activity('ACT_Get_Address_Count').output.firstRow.recordCount,10)",
+						"value": "@greater(activity('ACT_Get_Address_Count').output.firstRow.recordCount,100)",
 						"type": "Expression"
 					},
 					"ifTrueActivities": [
@@ -60,6 +60,7 @@
 							"typeProperties": {
 								"source": {
 									"type": "AzureSqlSource",
+									"sqlReaderQuery": "select * from saleslt.Address",
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
 								},
