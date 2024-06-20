@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Ingestion_Customer_SQLDB_ADLS",
+				"name": "Ingestion_Customer_SQLDB_ADLS_Folder",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
