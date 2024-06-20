@@ -28,7 +28,7 @@
 				}
 			},
 			{
-				"name": "ACT_Check_copy",
+				"name": "ACT_Check_Copy_condition",
 				"type": "IfCondition",
 				"dependsOn": [
 					{
