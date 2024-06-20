@@ -85,7 +85,7 @@
 									"referenceName": "DS_JSON_Generic",
 									"type": "DatasetReference",
 									"parameters": {
-										"folderName": "Prod"
+										"folderName": "Product Json"
 									}
 								}
 							]
