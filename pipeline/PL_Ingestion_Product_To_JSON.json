@@ -1,9 +1,9 @@
 {
-	"name": "PL_Ingestion_Customer_JOIN_ADLS",
+	"name": "PL_Ingestion_Product_To_JSON",
 	"properties": {
 		"activities": [
 			{
-				"name": "ACT_Ingestion_Product_To_JSON",
+				"name": "ACT_Ingestion_Customer_JOIN_ADLS",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
