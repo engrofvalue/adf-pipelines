@@ -65,15 +65,25 @@
 									"partitionOption": "None"
 								},
 								"sink": {
-									"type": "JsonSink",
+									"type": "DelimitedTextSink",
 									"storeSettings": {
 										"type": "AzureBlobFSWriteSettings"
 									},
 									"formatSettings": {
-										"type": "JsonWriteSettings"
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".txt"
 									}
 								},
-								"enableStaging": false
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
 							},
 							"inputs": [
 								{
@@ -83,10 +93,10 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "DS_JSON_Generic",
+									"referenceName": "DS_ADLS_CSV_generic",
 									"type": "DatasetReference",
 									"parameters": {
-										"folderName": "Product Json"
+										"folderName": "CustomerAddress"
 									}
 								}
 							]
