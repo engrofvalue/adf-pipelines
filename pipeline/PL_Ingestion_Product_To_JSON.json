@@ -38,7 +38,13 @@
 						]
 					}
 				],
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@activity(activity('ACT_Get_Product_Count').output.firstRow.recordCount,10)",
+						"type": "Expression"
+					}
+				}
 			}
 		],
 		"annotations": []
