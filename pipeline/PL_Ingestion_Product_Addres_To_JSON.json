@@ -94,7 +94,7 @@
 				}
 			},
 			{
-				"name": "ACT_Exceute_Product",
+				"name": "ACT_Exceute_Product_Address_Json_To _Child",
 				"type": "ExecutePipeline",
 				"dependsOn": [
 					{
@@ -109,6 +109,10 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"pipeline": {
+						"referenceName": "PL_Ingestion_Product_Addres_To_JSON_Child",
+						"type": "PipelineReference"
+					},
 					"waitOnCompletion": true
 				}
 			}
