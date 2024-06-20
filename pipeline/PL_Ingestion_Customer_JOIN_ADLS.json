@@ -17,7 +17,6 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "Select C.Firstname, C.MiddleName,C.LastName, CA.AddressLine1,CA.AddressLine2\nFrom [SalesLT].[Customer] as C \nLeft Join [SalesLT].[CustomerAddress] as A \nOn C.[CustomerID] = A.[CustomerID]\nLeft Join [SalesLT].[Address] as CA\nOn A.[AddressID] = CA.[AddressID]\nOrder BY 5 DESC",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -44,7 +43,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DS_Product_SQL",
+						"referenceName": "DS_Product_table",
 						"type": "DatasetReference"
 					}
 				],
