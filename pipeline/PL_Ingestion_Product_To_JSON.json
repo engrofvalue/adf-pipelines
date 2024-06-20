@@ -82,8 +82,11 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "DS_ADLS_json",
-									"type": "DatasetReference"
+									"referenceName": "DS_JSON_Generic",
+									"type": "DatasetReference",
+									"parameters": {
+										"folderName": "Prod"
+									}
 								}
 							]
 						}
