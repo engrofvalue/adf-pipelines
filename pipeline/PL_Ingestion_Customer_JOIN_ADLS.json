@@ -28,7 +28,7 @@
 				}
 			},
 			{
-				"name": "If Condition1",
+				"name": "ACT_Codition_to_Copy",
 				"type": "IfCondition",
 				"dependsOn": [
 					{
