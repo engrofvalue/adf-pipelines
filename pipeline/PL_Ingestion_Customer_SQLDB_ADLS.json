@@ -49,8 +49,11 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_CSV",
-						"type": "DatasetReference"
+						"referenceName": "DS_ADLS_CSV_generic",
+						"type": "DatasetReference",
+						"parameters": {
+							"folderName": "Customer Table"
+						}
 					}
 				]
 			}
