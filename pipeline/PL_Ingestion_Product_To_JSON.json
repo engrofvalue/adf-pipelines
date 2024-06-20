@@ -46,7 +46,7 @@
 					},
 					"ifTrueActivities": [
 						{
-							"name": "Act_copy_date",
+							"name": "Act_copy_data",
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
@@ -58,8 +58,19 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
+								"source": {
+									"type": "AzureSqlSource",
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
+								},
 								"enableStaging": false
-							}
+							},
+							"inputs": [
+								{
+									"referenceName": "DS_Product_SQL",
+									"type": "DatasetReference"
+								}
+							]
 						}
 					]
 				}
