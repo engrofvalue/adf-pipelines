@@ -27,6 +27,7 @@
 							"type": "AzureBlobFSWriteSettings",
 							"metadata": [
 								{
+									"name": "FileName",
 									"value": ""
 								}
 							]
