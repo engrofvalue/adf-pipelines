@@ -26,6 +26,19 @@
 						"type": "DatasetReference"
 					}
 				}
+			},
+			{
+				"name": "ACT_C",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "ACT_Get_Product_Count",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": []
 			}
 		],
 		"annotations": []
