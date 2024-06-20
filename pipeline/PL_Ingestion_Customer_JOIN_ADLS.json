@@ -3,8 +3,8 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "ACT_Ingestion_Product_To_JSON",
-				"type": "Copy",
+				"name": "ACT_Get_Product_Count",
+				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -17,46 +17,15 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "",
+						"sqlReaderQuery": "Select count (*)\nFrom SalesLT",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
-					"sink": {
-						"type": "DelimitedTextSink",
-						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
-						},
-						"formatSettings": {
-							"type": "DelimitedTextWriteSettings",
-							"quoteAllText": true,
-							"fileExtension": ".txt"
-						}
-					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
-				},
-				"inputs": [
-					{
+					"dataset": {
 						"referenceName": "DS_Product_table",
 						"type": "DatasetReference"
 					}
-				],
-				"outputs": [
-					{
-						"referenceName": "DS_ADLS_CSV_generic",
-						"type": "DatasetReference",
-						"parameters": {
-							"folderName": "Customer Name_Address"
-						}
-					}
-				]
+				}
 			}
 		],
 		"annotations": []
