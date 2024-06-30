@@ -21,7 +21,18 @@
 						"requestInterval": "00.00:00:00.010",
 						"requestMethod": "GET",
 						"paginationRules": {
-							"QueryParameters.{page_no}": "RANGE:1:100:"
+							"QueryParameters.{page_no}": "RANGE:1:100:1"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
 						}
 					},
 					"enableStaging": false
@@ -30,6 +41,15 @@
 					{
 						"referenceName": "DS_Rest_Pagination",
 						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS_ADLS_CSV_generic",
+						"type": "DatasetReference",
+						"parameters": {
+							"folderName": "Pagination"
+						}
 					}
 				]
 			}
