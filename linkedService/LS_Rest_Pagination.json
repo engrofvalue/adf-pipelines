@@ -1,0 +1,12 @@
+{
+	"name": "LS_Rest_Pagination",
+	"properties": {
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": "https://dummyjson.com/products/{page_no}",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
