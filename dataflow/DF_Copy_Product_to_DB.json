@@ -14,7 +14,11 @@
 			],
 			"sinks": [
 				{
-					"name": "SinktoDB"
+					"dataset": {
+						"referenceName": "DS_Dataflow_CSV",
+						"type": "DatasetReference"
+					},
+					"name": "Sinktoadf"
 				}
 			],
 			"transformations": [
@@ -85,8 +89,11 @@
 				"RemoveNull sort(desc(HighestPrice, true)) ~> SortPrice",
 				"SortPrice sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> SinktoDB"
+				"     skipDuplicateMapOutputs: true) ~> Sinktoadf"
 			]
 		}
 	}
