@@ -68,7 +68,8 @@
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> Selectrequiredcolumns",
-				"Selectrequiredcolumns aggregate() ~> findmaximum"
+				"Selectrequiredcolumns aggregate(groupBy(Color),",
+				"     HighestPrice = ERROR_FUNCTION('')) ~> findmaximum"
 			]
 		}
 	}
