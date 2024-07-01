@@ -52,9 +52,6 @@
 				},
 				{
 					"name": "SortPrice"
-				},
-				{
-					"name": "join1"
 				}
 			],
 			"scriptLines": [
@@ -122,11 +119,6 @@
 				"          ProductCount = count(ProdID)) ~> findmaximum",
 				"findmaximum filter(!isNull(Color)) ~> RemoveNull",
 				"RemoveNull sort(desc(HighestPrice, true)) ~> SortPrice",
-				"source1, inputProductFile join(CustomerID == ProductID,",
-				"     joinType:'left',",
-				"     matchType:'exact',",
-				"     ignoreSpaces: false,",
-				"     broadcast: 'auto')~> join1",
 				"SortPrice sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     umask: 0022,",
