@@ -10,6 +10,9 @@
 						"type": "DatasetReference"
 					},
 					"name": "inputProductFile"
+				},
+				{
+					"name": "source1"
 				}
 			],
 			"sinks": [
@@ -70,6 +73,8 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> inputProductFile",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false) ~> source1",
 				"inputProductFile filter(ProductID > 800) ~> filterproduct",
 				"filterproduct derive(isColorFlag = equalsIgnoreCase(Color,'Black')) ~> addcolorflag",
 				"addcolorflag select(mapColumn(",
