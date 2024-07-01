@@ -10,13 +10,6 @@
 						"type": "DatasetReference"
 					},
 					"name": "inputProductFile"
-				},
-				{
-					"dataset": {
-						"referenceName": "DS_SQL_DB_Customer",
-						"type": "DatasetReference"
-					},
-					"name": "source1"
 				}
 			],
 			"sinks": [
@@ -52,6 +45,9 @@
 				},
 				{
 					"name": "SortPrice"
+				},
+				{
+					"name": "surrogateKey1"
 				}
 			],
 			"scriptLines": [
@@ -77,27 +73,6 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> inputProductFile",
-				"source(output(",
-				"          CustomerID as integer,",
-				"          NameStyle as boolean,",
-				"          Title as string,",
-				"          FirstName as string,",
-				"          MiddleName as string,",
-				"          LastName as string,",
-				"          Suffix as string,",
-				"          CompanyName as string,",
-				"          SalesPerson as string,",
-				"          EmailAddress as string,",
-				"          Phone as string,",
-				"          PasswordHash as string,",
-				"          PasswordSalt as string,",
-				"          rowguid as string,",
-				"          ModifiedDate as timestamp",
-				"     ),",
-				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     format: 'table') ~> source1",
 				"inputProductFile filter(ProductID > 800) ~> filterproduct",
 				"filterproduct derive(isColorFlag = equalsIgnoreCase(Color,'Black')) ~> addcolorflag",
 				"addcolorflag select(mapColumn(",
@@ -119,6 +94,9 @@
 				"          ProductCount = count(ProdID)) ~> findmaximum",
 				"findmaximum filter(!isNull(Color)) ~> RemoveNull",
 				"RemoveNull sort(desc(HighestPrice, true)) ~> SortPrice",
+				"inputProductFile keyGenerate(output(NewuniqueKeycolumns as long),",
+				"     startAt: 10001L,",
+				"     stepValue: 1L) ~> surrogateKey1",
 				"SortPrice sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     umask: 0022,",
