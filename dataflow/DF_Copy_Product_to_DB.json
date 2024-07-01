@@ -27,6 +27,9 @@
 				},
 				{
 					"name": "findmaximum"
+				},
+				{
+					"name": "filter1"
 				}
 			],
 			"scriptLines": [
@@ -70,7 +73,8 @@
 				"     skipDuplicateMapOutputs: true) ~> Selectrequiredcolumns",
 				"Selectrequiredcolumns aggregate(groupBy(Color),",
 				"     HighestPrice = max(ListPrice),",
-				"          ProductCount = count(ProdID)) ~> findmaximum"
+				"          ProductCount = count(ProdID)) ~> findmaximum",
+				"findmaximum filter(ERROR_FUNCTION('')) ~> filter1"
 			]
 		}
 	}
