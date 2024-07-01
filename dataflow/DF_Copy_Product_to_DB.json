@@ -21,6 +21,9 @@
 				{
 					"name": "addcolorflag",
 					"description": "adding color flag derived column"
+				},
+				{
+					"name": "Selectrequiredcolumns"
 				}
 			],
 			"scriptLines": [
@@ -47,7 +50,29 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> inputProductFile",
 				"inputProductFile filter(ProductID > 800) ~> filterproduct",
-				"filterproduct derive(isColorFlag = equalsIgnoreCase(Color,'Black')) ~> addcolorflag"
+				"filterproduct derive(isColorFlag = equalsIgnoreCase(Color,'Black')) ~> addcolorflag",
+				"addcolorflag select(mapColumn(",
+				"          ProductID,",
+				"          Name,",
+				"          ProductNumber,",
+				"          Color,",
+				"          StandardCost,",
+				"          ListPrice,",
+				"          Size,",
+				"          Weight,",
+				"          ProductCategoryID,",
+				"          ProductModelID,",
+				"          SellStartDate,",
+				"          SellEndDate,",
+				"          DiscontinuedDate,",
+				"          ThumbNailPhoto,",
+				"          ThumbnailPhotoFileName,",
+				"          rowguid,",
+				"          ModifiedDate,",
+				"          isColorFlag",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> Selectrequiredcolumns"
 			]
 		}
 	}
