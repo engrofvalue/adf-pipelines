@@ -12,6 +12,10 @@
 					"name": "inputProductFile"
 				},
 				{
+					"dataset": {
+						"referenceName": "DS_SQL_DB_Customer",
+						"type": "DatasetReference"
+					},
 					"name": "source1"
 				}
 			],
@@ -48,6 +52,9 @@
 				},
 				{
 					"name": "SortPrice"
+				},
+				{
+					"name": "join1"
 				}
 			],
 			"scriptLines": [
@@ -73,8 +80,27 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> inputProductFile",
-				"source(allowSchemaDrift: true,",
-				"     validateSchema: false) ~> source1",
+				"source(output(",
+				"          CustomerID as integer,",
+				"          NameStyle as boolean,",
+				"          Title as string,",
+				"          FirstName as string,",
+				"          MiddleName as string,",
+				"          LastName as string,",
+				"          Suffix as string,",
+				"          CompanyName as string,",
+				"          SalesPerson as string,",
+				"          EmailAddress as string,",
+				"          Phone as string,",
+				"          PasswordHash as string,",
+				"          PasswordSalt as string,",
+				"          rowguid as string,",
+				"          ModifiedDate as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> source1",
 				"inputProductFile filter(ProductID > 800) ~> filterproduct",
 				"filterproduct derive(isColorFlag = equalsIgnoreCase(Color,'Black')) ~> addcolorflag",
 				"addcolorflag select(mapColumn(",
@@ -96,6 +122,11 @@
 				"          ProductCount = count(ProdID)) ~> findmaximum",
 				"findmaximum filter(!isNull(Color)) ~> RemoveNull",
 				"RemoveNull sort(desc(HighestPrice, true)) ~> SortPrice",
+				"source1, inputProductFile join(CustomerID == ERROR_FUNCTION(''),",
+				"     joinType:'left',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> join1",
 				"SortPrice sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     umask: 0022,",
