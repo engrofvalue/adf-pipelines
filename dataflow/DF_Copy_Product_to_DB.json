@@ -70,7 +70,7 @@
 				"     skipDuplicateMapOutputs: true) ~> Selectrequiredcolumns",
 				"Selectrequiredcolumns aggregate(groupBy(Color),",
 				"     HighestPrice = max(ListPrice),",
-				"          column1 = ERROR_FUNCTION('')) ~> findmaximum"
+				"          ProductCount = count(ProdID)) ~> findmaximum"
 			]
 		}
 	}
