@@ -122,7 +122,7 @@
 				"          ProductCount = count(ProdID)) ~> findmaximum",
 				"findmaximum filter(!isNull(Color)) ~> RemoveNull",
 				"RemoveNull sort(desc(HighestPrice, true)) ~> SortPrice",
-				"source1, inputProductFile join(CustomerID == ERROR_FUNCTION(''),",
+				"source1, inputProductFile join(CustomerID == ProductID,",
 				"     joinType:'left',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
