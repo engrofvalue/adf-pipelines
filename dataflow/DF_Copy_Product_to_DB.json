@@ -69,7 +69,8 @@
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> Selectrequiredcolumns",
 				"Selectrequiredcolumns aggregate(groupBy(Color),",
-				"     HighestPrice = ERROR_FUNCTION('')) ~> findmaximum"
+				"     HighestPrice = max(ListPrice),",
+				"          column1 = ERROR_FUNCTION('')) ~> findmaximum"
 			]
 		}
 	}
