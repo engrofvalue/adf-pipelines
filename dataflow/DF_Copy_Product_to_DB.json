@@ -29,7 +29,7 @@
 					"name": "findmaximum"
 				},
 				{
-					"name": "filter1"
+					"name": "RemoveNull"
 				}
 			],
 			"scriptLines": [
@@ -74,7 +74,7 @@
 				"Selectrequiredcolumns aggregate(groupBy(Color),",
 				"     HighestPrice = max(ListPrice),",
 				"          ProductCount = count(ProdID)) ~> findmaximum",
-				"findmaximum filter(ERROR_FUNCTION('')) ~> filter1"
+				"findmaximum filter(!isNull(Color)) ~> RemoveNull"
 			]
 		}
 	}
