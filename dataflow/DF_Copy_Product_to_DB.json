@@ -52,7 +52,7 @@
 				"inputProductFile filter(ProductID > 800) ~> filterproduct",
 				"filterproduct derive(isColorFlag = equalsIgnoreCase(Color,'Black')) ~> addcolorflag",
 				"addcolorflag select(mapColumn(",
-				"          ProductID,",
+				"          ProdID = ProductID,",
 				"          Name,",
 				"          ProductNumber,",
 				"          Color,",
