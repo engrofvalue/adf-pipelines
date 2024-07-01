@@ -24,6 +24,9 @@
 				},
 				{
 					"name": "Selectrequiredcolumns"
+				},
+				{
+					"name": "findmaximum"
 				}
 			],
 			"scriptLines": [
@@ -64,7 +67,8 @@
 				"          isColorFlag",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> Selectrequiredcolumns"
+				"     skipDuplicateMapOutputs: true) ~> Selectrequiredcolumns",
+				"Selectrequiredcolumns aggregate() ~> findmaximum"
 			]
 		}
 	}
