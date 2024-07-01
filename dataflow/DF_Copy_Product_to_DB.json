@@ -78,7 +78,7 @@
 				"     HighestPrice = max(ListPrice),",
 				"          ProductCount = count(ProdID)) ~> findmaximum",
 				"findmaximum filter(!isNull(Color)) ~> RemoveNull",
-				"RemoveNull sort(asc(HighestPrice, true)) ~> SortPrice"
+				"RemoveNull sort(desc(HighestPrice, true)) ~> SortPrice"
 			]
 		}
 	}
