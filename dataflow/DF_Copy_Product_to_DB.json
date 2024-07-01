@@ -30,6 +30,9 @@
 				},
 				{
 					"name": "RemoveNull"
+				},
+				{
+					"name": "SortPrice"
 				}
 			],
 			"scriptLines": [
@@ -74,7 +77,8 @@
 				"Selectrequiredcolumns aggregate(groupBy(Color),",
 				"     HighestPrice = max(ListPrice),",
 				"          ProductCount = count(ProdID)) ~> findmaximum",
-				"findmaximum filter(!isNull(Color)) ~> RemoveNull"
+				"findmaximum filter(!isNull(Color)) ~> RemoveNull",
+				"RemoveNull sort(asc(HighestPrice, true)) ~> SortPrice"
 			]
 		}
 	}
