@@ -18,7 +18,11 @@
 						"referenceName": "DS_Dataflow_CSV",
 						"type": "DatasetReference"
 					},
-					"name": "Sinktoadf"
+					"name": "Sinktoadf",
+					"rejectedDataLinkedService": {
+						"referenceName": "ADLS_LS",
+						"type": "LinkedServiceReference"
+					}
 				}
 			],
 			"transformations": [
