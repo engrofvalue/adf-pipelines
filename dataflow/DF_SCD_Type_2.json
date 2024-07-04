@@ -63,7 +63,7 @@
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
 				"     broadcast: 'auto')~> LeftJoin",
-				"LeftJoin filter(ERROR_FUNCTION('')) ~> filterNull"
+				"LeftJoin filter(!isNull(db_id)) ~> filterNull"
 			]
 		}
 	}
