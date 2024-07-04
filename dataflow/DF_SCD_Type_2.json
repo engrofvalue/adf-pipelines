@@ -75,7 +75,7 @@
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select2",
-				"select2 derive() ~> derivedColumn1"
+				"select2 derive(active_flag = 0) ~> derivedColumn1"
 			]
 		}
 	}
