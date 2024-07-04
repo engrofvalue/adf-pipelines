@@ -32,6 +32,9 @@
 				},
 				{
 					"name": "select2"
+				},
+				{
+					"name": "derivedColumn1"
 				}
 			],
 			"scriptLines": [
@@ -68,16 +71,11 @@
 				"     broadcast: 'auto')~> LeftJoin",
 				"LeftJoin filter(!isNull(db_id)) ~> filterNull",
 				"filterNull select(mapColumn(",
-				"          id,",
-				"          name,",
-				"          city,",
-				"          db_id,",
-				"          db_name,",
-				"          db_city,",
-				"          db_active_flag",
+				"          id = db_id",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> select2"
+				"     skipDuplicateMapOutputs: true) ~> select2",
+				"select2 derive() ~> derivedColumn1"
 			]
 		}
 	}
