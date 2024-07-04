@@ -9,14 +9,14 @@
 						"referenceName": "DS_Employee_scd",
 						"type": "DatasetReference"
 					},
-					"name": "DsScdSource"
+					"name": "DsScdFile"
 				},
 				{
 					"dataset": {
 						"referenceName": "DS_SCD_Type_2",
 						"type": "DatasetReference"
 					},
-					"name": "DsScdTable"
+					"name": "DBTable"
 				}
 			],
 			"sinks": [],
@@ -29,7 +29,7 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> DsScdSource",
+				"     ignoreNoFilesFound: false) ~> DsScdFile",
 				"source(output(",
 				"          id as integer,",
 				"          name as string,",
@@ -39,7 +39,7 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     format: 'table') ~> DsScdTable"
+				"     format: 'table') ~> DBTable"
 			]
 		}
 	}
