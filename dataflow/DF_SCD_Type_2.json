@@ -46,9 +46,9 @@
 				"     format: 'table') ~> DBTable",
 				"DBTable select(mapColumn(",
 				"          db_id = id,",
-				"          name,",
-				"          city,",
-				"          active_flag",
+				"          db_name = name,",
+				"          db_city = city,",
+				"          db_active_flag = active_flag",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select1"
