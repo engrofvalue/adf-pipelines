@@ -43,6 +43,9 @@
 				},
 				{
 					"name": "derivedColumn1"
+				},
+				{
+					"name": "AlterRow1"
 				}
 			],
 			"scriptLines": [
@@ -84,7 +87,8 @@
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select2",
 				"select2 derive(active_flag = 0) ~> derivedColumn1",
-				"derivedColumn1 sink(allowSchemaDrift: true,",
+				"derivedColumn1 alterRow(updateIf(1==1)) ~> AlterRow1",
+				"AlterRow1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          id as integer,",
