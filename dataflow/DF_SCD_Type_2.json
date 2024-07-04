@@ -29,6 +29,9 @@
 				},
 				{
 					"name": "filterNull"
+				},
+				{
+					"name": "select2"
 				}
 			],
 			"scriptLines": [
@@ -63,7 +66,18 @@
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
 				"     broadcast: 'auto')~> LeftJoin",
-				"LeftJoin filter(!isNull(db_id)) ~> filterNull"
+				"LeftJoin filter(!isNull(db_id)) ~> filterNull",
+				"filterNull select(mapColumn(",
+				"          id,",
+				"          name,",
+				"          city,",
+				"          db_id,",
+				"          db_name,",
+				"          db_city,",
+				"          db_active_flag",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select2"
 			]
 		}
 	}
