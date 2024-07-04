@@ -9,20 +9,25 @@
 						"referenceName": "DS_Employee_scd",
 						"type": "DatasetReference"
 					},
-					"name": "DSscd"
+					"name": "DsScdSource"
+				},
+				{
+					"name": "source1"
 				}
 			],
 			"sinks": [],
 			"transformations": [],
 			"scriptLines": [
 				"source(output(",
-				"          id as string,",
+				"          id as short,",
 				"          name as string,",
 				"          city as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> DSscd"
+				"     ignoreNoFilesFound: false) ~> DsScdSource",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false) ~> source1"
 			]
 		}
 	}
