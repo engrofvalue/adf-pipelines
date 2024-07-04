@@ -26,6 +26,9 @@
 				},
 				{
 					"name": "LeftJoin"
+				},
+				{
+					"name": "filterNull"
 				}
 			],
 			"scriptLines": [
@@ -59,7 +62,8 @@
 				"     joinType:'left',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
-				"     broadcast: 'auto')~> LeftJoin"
+				"     broadcast: 'auto')~> LeftJoin",
+				"LeftJoin filter(ERROR_FUNCTION('')) ~> filterNull"
 			]
 		}
 	}
