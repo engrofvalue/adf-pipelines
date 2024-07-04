@@ -28,6 +28,10 @@
 					"name": "sink1"
 				},
 				{
+					"dataset": {
+						"referenceName": "DS_SCD_Type_2",
+						"type": "DatasetReference"
+					},
 					"name": "sink2"
 				}
 			],
@@ -114,8 +118,20 @@
 				"     errorHandlingOption: 'stopOnFirstError') ~> sink1",
 				"derivedColumn2 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     input(",
+				"          id as integer,",
+				"          name as string,",
+				"          city as string,",
+				"          active_flag as integer",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink2"
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink2"
 			]
 		}
 	}
