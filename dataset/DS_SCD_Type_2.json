@@ -2,7 +2,7 @@
 	"name": "DS_SCD_Type_2",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureSqlDatabase1",
+			"referenceName": "LS_Sql_DB",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
