@@ -1,0 +1,24 @@
+{
+	"name": "Trigger_Every_1_Minute",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "PL_1_Customer",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 1,
+				"startTime": "2024-07-05T06:39:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}
