@@ -9,6 +9,12 @@
 					"referenceName": "PL_Increamental_Pipeline_with_Logic_App",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "PL_Increamental_Pipeline",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "BlobEventsTrigger",
