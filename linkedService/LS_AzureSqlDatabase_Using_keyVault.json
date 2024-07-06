@@ -1,0 +1,23 @@
+{
+	"name": "LS_AzureSqlDatabase_Using_keyVault",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "databaseserveradf.database.windows.net",
+			"database": "azuresqldbfortesting",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "abhilash",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "LS_AzureKeyVault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "my-prod-db-password"
+			}
+		}
+	}
+}
