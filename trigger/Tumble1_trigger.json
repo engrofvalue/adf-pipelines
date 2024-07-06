@@ -1,0 +1,26 @@
+{
+	"name": "Tumble1_trigger",
+	"properties": {
+		"description": "\n",
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipeline": {
+			"pipelineReference": {
+				"referenceName": "PL_Increamental_Pipeline",
+				"type": "PipelineReference"
+			}
+		},
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Minute",
+			"interval": 5,
+			"startTime": "2024-07-05T17:01:00Z",
+			"delay": "00:00:00",
+			"maxConcurrency": 3,
+			"retryPolicy": {
+				"intervalInSeconds": 30
+			},
+			"dependsOn": []
+		}
+	}
+}
