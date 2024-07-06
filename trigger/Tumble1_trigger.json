@@ -4,6 +4,12 @@
 		"description": "\n",
 		"annotations": [],
 		"runtimeState": "Started",
+		"pipeline": {
+			"pipelineReference": {
+				"referenceName": "PL_Get_Metadata",
+				"type": "PipelineReference"
+			}
+		},
 		"type": "TumblingWindowTrigger",
 		"typeProperties": {
 			"frequency": "Minute",
