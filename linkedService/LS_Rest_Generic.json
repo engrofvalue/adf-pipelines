@@ -1,5 +1,6 @@
 {
 	"name": "LS_Rest_Generic",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "RestService",

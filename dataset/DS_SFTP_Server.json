@@ -14,5 +14,6 @@
 				"folderPath": "/pub/example"
 			}
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
 }
