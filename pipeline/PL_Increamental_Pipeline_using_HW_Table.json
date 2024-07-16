@@ -1,0 +1,224 @@
+{
+	"name": "PL_Increamental_Pipeline_using_HW_Table",
+	"properties": {
+		"activities": [
+			{
+				"name": "ACT_LKP_Get_High_WaterMark_TimeStamp",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "select hw_date from dbo.HW_table where\ntablename= 'Customer'",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "Product_SQL_DS",
+						"type": "DatasetReference"
+					}
+				}
+			},
+			{
+				"name": "ACT_LKP_Get_Last_Modified_TimeStamp",
+				"type": "Lookup",
+				"dependsOn": [
+					{
+						"activity": "ACT_LKP_Get_High_WaterMark_TimeStamp",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "select max (ModifiedDate) as LastRecordDate from salesLT.customer",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "DS_Product_SQL",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": true
+				}
+			},
+			{
+				"name": "ACT_Copy_Data",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "ACT_LKP_Get_Last_Modified_TimeStamp",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": {
+							"value": "select * from saleslt.customer where ModifiedDate > '@{activity('ACT_LKP_Get_High_WaterMark_TimeStamp').output.firstRow.hw_date\n}' and ModifiedDate <= '@{activity('ACT_LKP_Get_Last_Modified_TimeStamp').output.firstRow.LastRecordDate}'",
+							"type": "Expression"
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_SQL_DB_Customer",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS_ADLS_CSV_generic",
+						"type": "DatasetReference",
+						"parameters": {
+							"folderName": "Customer_Data_Hw"
+						}
+					}
+				]
+			},
+			{
+				"name": "ACT_Update_High_WaterMark",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "ACT_Copy_Data",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": {
+							"value": "select 'Customer' as tablename,'@{activity('ACT_LKP_Get_Last_Modified_TimeStamp').output.firstRow.LastRecordDate}' as hw_date",
+							"type": "Expression"
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "upsert",
+						"upsertSettings": {
+							"useTempDB": true,
+							"keys": [
+								"tablename"
+							]
+						},
+						"sqlWriterUseTableLock": false,
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "tablename",
+									"type": "varchar"
+								},
+								"sink": {
+									"name": "tablename",
+									"type": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "hw_date",
+									"type": "datetime",
+									"scale": 3,
+									"precision": 23
+								},
+								"sink": {
+									"name": "hw_date",
+									"type": "datetime",
+									"scale": 3,
+									"precision": 23
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_HW_Update",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS_HW_Update",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-06-08T18:34:08Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,27 @@
+{
+	"name": "DS_HW_Update",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "tablename",
+				"type": "varchar"
+			},
+			{
+				"name": "hw_date",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "HW_table"
+		}
+	}
+}

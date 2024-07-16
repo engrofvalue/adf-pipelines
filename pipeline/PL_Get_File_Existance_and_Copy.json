@@ -1,5 +1,5 @@
 {
-	"name": "PL_Get-Metadata-Example",
+	"name": "PL_Get_File_Existance_and_Copy",
 	"properties": {
 		"activities": [
 			{
@@ -16,16 +16,11 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "product_TXT_DS",
+						"referenceName": "DS_custmore_csv",
 						"type": "DatasetReference"
 					},
 					"fieldList": [
-						"exists",
-						"itemType",
-						"itemName",
-						"size",
-						"structure",
-						"lastModified"
+						"exists"
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
@@ -80,15 +75,11 @@
 									}
 								},
 								"sink": {
-									"type": "DelimitedTextSink",
-									"storeSettings": {
-										"type": "AzureBlobFSWriteSettings"
-									},
-									"formatSettings": {
-										"type": "DelimitedTextWriteSettings",
-										"quoteAllText": true,
-										"fileExtension": ".txt"
-									}
+									"type": "AzureSqlSink",
+									"writeBehavior": "insert",
+									"sqlWriterUseTableLock": false,
+									"tableOption": "autoCreate",
+									"disableMetricsCollection": false
 								},
 								"enableStaging": false,
 								"translator": {
@@ -102,16 +93,17 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "product_TXT_DS",
+									"referenceName": "DS_custmore_csv",
 									"type": "DatasetReference"
 								}
 							],
 							"outputs": [
 								{
-									"referenceName": "ADLS_CSV_generic_dataset",
+									"referenceName": "DS_SQL_DB_Generic",
 									"type": "DatasetReference",
 									"parameters": {
-										"folderName": "Product"
+										"schemaName": "saleslt",
+										"tableName": "CustomerData"
 									}
 								}
 							]
