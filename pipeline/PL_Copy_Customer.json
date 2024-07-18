@@ -47,7 +47,10 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"schemaName": "saleslt",
-							"tableName": "Customer"
+							"tableName": {
+								"value": "@pipeline().parameters.entityName",
+								"type": "Expression"
+							}
 						}
 					}
 				],
@@ -56,12 +59,20 @@
 						"referenceName": "ADLS_CSV_generic_dataset",
 						"type": "DatasetReference",
 						"parameters": {
-							"folderName": "Customer_Copy"
+							"folderName": {
+								"value": "@pipeline().parameters.entityName",
+								"type": "Expression"
+							}
 						}
 					}
 				]
 			}
 		],
+		"parameters": {
+			"entityName": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
