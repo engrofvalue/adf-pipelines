@@ -1,0 +1,99 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-mydev-pipeline"
+		},
+		"ADLS_LS_accountKey": {
+			"value": ""
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_password": {
+			"value": ""
+		},
+		"AzureSqlDatabase2_password": {
+			"value": ""
+		},
+		"LS_SFTP_password": {
+			"value": ""
+		},
+		"LS_SQL_DB_Dynamic_password": {
+			"value": ""
+		},
+		"LS_Sql_DB_connectionString": {
+			"value": ""
+		},
+		"ADLS_LS_properties_typeProperties_url": {
+			"value": "https://missionadebathch8adls23.dfs.core.windows.net/"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "databaseserveradf.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "azuresqldbfortesting"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "Abhilash"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_server": {
+			"value": "db-server-0630.database.windows.net"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_database": {
+			"value": "SQL_DB1"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_userName": {
+			"value": "adminuser"
+		},
+		"LS_AzureKeyVault_properties_typeProperties_baseUrl": {
+			"value": "https://azuretrainingbatch8.vault.azure.net/"
+		},
+		"LS_AzureSqlDatabase_Using_keyVault_properties_typeProperties_server": {
+			"value": "databaseserveradf.database.windows.net"
+		},
+		"LS_AzureSqlDatabase_Using_keyVault_properties_typeProperties_database": {
+			"value": "azuresqldbfortesting"
+		},
+		"LS_AzureSqlDatabase_Using_keyVault_properties_typeProperties_userName": {
+			"value": "abhilash"
+		},
+		"LS_Rest_Api_properties_typeProperties_url": {
+			"value": "https://restcountries.com/v3.1/all"
+		},
+		"LS_Rest_Generic_properties_typeProperties_url": {
+			"value": "https://restcountries.com/v3.1/name"
+		},
+		"LS_Rest_Pagination_properties_typeProperties_url": {
+			"value": "https://dummyjson.com/products/{page_no}"
+		},
+		"LS_SFTP_properties_typeProperties_host": {
+			"value": "test.rebex.net"
+		},
+		"LS_SFTP_properties_typeProperties_userName": {
+			"value": "demo"
+		},
+		"LS_SQL_DB_Dynamic_properties_typeProperties_server": {
+			"value": "databaseserveradf.database.windows.net"
+		},
+		"LS_SQL_DB_Dynamic_properties_typeProperties_database": {
+			"value": "azuresqldbfortesting"
+		},
+		"LS_SQL_DB_Dynamic_properties_typeProperties_userName": {
+			"value": "@{linkedService().userName}"
+		},
+		"adls_ls1_properties_typeProperties_url": {
+			"value": "https://adfstorage0123.dfs.core.windows.net/"
+		},
+		"Trigger_Storage_1_properties_typeProperties_scope": {
+			"value": "/subscriptions/7ae103b2-6c79-4a9d-8d5c-4e07d943529d/resourceGroups/azuredetrainingdeepak/providers/Microsoft.Storage/storageAccounts/missionadebathch8adls23"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
