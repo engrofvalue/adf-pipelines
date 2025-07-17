@@ -1,0 +1,9 @@
+{
+	"name": "adf-mydev-pipeline",
+	"location": "koreacentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e6987447-c929-4ef8-a959-742fd6658e21",
+		"tenantId": "a2b804cb-f9ef-4ac7-84b0-81fff44d97a4"
+	}
+}
